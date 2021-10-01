@@ -149,8 +149,8 @@ class Hello_java(ChrisApp):
     def execute_java(self,java_file, stdin,lines):
         java_class,ext = os.path.splitext(java_file)
         cmd = ['java', java_class, stdin,lines]
-        proc = subprocess.Popen(cmd, stdout=PIPE, stderr=STDOUT)
-        stdout,stderr = proc.communicate()
-        print (stdout.decode("utf-8"))
+        proc = subprocess.run(cmd, stdout=PIPE, stderr=STDOUT)
+        print (proc.stdout.decode("utf-8"))
+
 
 
